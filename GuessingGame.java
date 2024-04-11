@@ -10,7 +10,7 @@ public class GuessingGame {
             Game game = new Game();
             game.displayWelcomeMessage();
             game.generateNumberToBeGuessed();
-            
+
             boolean guessedCorrectly = false;
             while (!guessedCorrectly) {
                 
@@ -27,11 +27,11 @@ public class GuessingGame {
                 }
             }
 
-            System.out.print("Do you want to play again? (y/n): ");
+            System.out.print("Try again? (y/n): ");
             playAgain = scanner.next().charAt(0);
         }
 
-        System.out.println("Thank you for playing!");
+        System.out.println("Bye - Come back soon!");
         scanner.close();
     }
 }
