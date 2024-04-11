@@ -1,39 +1,4 @@
-import java.util.Scanner;
 import java.util.Random;
-
-public class GuessingGame {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        char playAgain = 'y';
-
-        while (playAgain == 'y' || playAgain == 'Y') {
-            Game game = new Game();
-            game.displayWelcomeMessage();
-
-            boolean guessedCorrectly = false;
-            while (!guessedCorrectly) {
-                game.generateNumberToBeGuessed();
-                game.displayPleaseGuessMessage();
-
-                int guess = scanner.nextInt();
-                game.makeGuess(guess);
-
-                if (game.isCorrectGuess()) {
-                    guessedCorrectly = true;
-                    game.displayCorrectGuessMessage();
-                } else {
-                    game.displayGuessAgainMessage();
-                }
-            }
-
-            System.out.print("Do you want to play again? (y/n): ");
-            playAgain = scanner.next().charAt(0);
-        }
-
-        System.out.println("Thank you for playing!");
-        scanner.close();
-    }
-}
 
 class Game {
     private int number;
@@ -79,20 +44,27 @@ class Game {
     }
 
     public void displayGuessAgainMessage() {
-        int difference = Math.abs(guessNumber - number);
-
         if (guessNumber > number) {
-            if (difference > 10) {
-                System.out.println("Way too high! Guess again.");
-            } else {
-                System.out.println("Too high! Guess again.");
-            }
-        } else {
-            if (difference > 10) {
-                System.out.println("Way too low! Guess again.");
-            } else {
-                System.out.println("Too low! Guess again.");
-            }
+            System.out.println("To High! Guess again.");
+        } else{
+            System.out.println("To Low! Guess again.");
         }
     }
+    // public void displayGuessAgainMessage() {
+    //     int difference = Math.abs(guessNumber - number);
+
+    //     if (guessNumber > number) {
+    //         if (difference > 10) {
+    //             System.out.println("Way too high! Guess again.");
+    //         } else {
+    //             System.out.println("Too high! Guess again.");
+    //         }
+    //     } else {
+    //         if (difference > 10) {
+    //             System.out.println("Way too low! Guess again.");
+    //         } else {
+    //             System.out.println("Too low! Guess again.");
+    //         }
+    //     }
+    // }
 }
