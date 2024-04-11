@@ -44,27 +44,20 @@ class Game {
     }
 
     public void displayGuessAgainMessage() {
+        int difference = Math.abs(guessNumber - number);
+
         if (guessNumber > number) {
-            System.out.println("To High! Guess again.");
-        } else{
-            System.out.println("To Low! Guess again.");
+            if (difference > 10) {
+                System.out.println("Way too high! Guess again.");
+            } else {
+                System.out.println("Too high! Guess again.");
+            }
+        } else {
+            if (difference > 10) {
+                System.out.println("Way too low! Guess again.");
+            } else {
+                System.out.println("Too low! Guess again.");
+            }
         }
     }
-    // public void displayGuessAgainMessage() {
-    //     int difference = Math.abs(guessNumber - number);
-
-    //     if (guessNumber > number) {
-    //         if (difference > 10) {
-    //             System.out.println("Way too high! Guess again.");
-    //         } else {
-    //             System.out.println("Too high! Guess again.");
-    //         }
-    //     } else {
-    //         if (difference > 10) {
-    //             System.out.println("Way too low! Guess again.");
-    //         } else {
-    //             System.out.println("Too low! Guess again.");
-    //         }
-    //     }
-    // }
 }
